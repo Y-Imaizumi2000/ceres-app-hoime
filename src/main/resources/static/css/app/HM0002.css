@@ -1,0 +1,79 @@
+
+
+h2 {
+    margin-bottom: 25px;
+    color: #ff7fa8;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.app-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff7fa8;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.header-inner {
+	display: flex;
+	justify-content: center; /* ← これで左寄せ */
+	align-items: center;
+	width: 100%;
+}
+
+header {
+	width: 100%;
+}
+
+.header-inner img.logo {
+	display: block;
+	width: 100px;   /* ここを調整すればOK */
+	margin: 20px auto;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.checkbox a {
+  color: inherit;        /* 他の文字と同じ色にする */
+  font-weight: inherit;  /* 太さも揃える */
+  color: #d88fa8; /* Hoime のピンク系に合わせる */
+}
+
+.checkbox a:hover {
+  opacity: 0.8;
+}
+
+
+.checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  background-image: url("/img/heart-off.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 60%; 
+  transition: transform 0.25s ease;
+}
+
+.checkbox input[type="checkbox"]:checked {
+  background-image: url("/img/heart-on.png");
+  transform: scale(1.1);
+  animation: pop 0.25s ease;
+}
+
+
+/* ぽんっと弾むアニメーション */
+@keyframes pop {
+  0% { transform: scale(0.8); }
+  70% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+

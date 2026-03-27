@@ -1,0 +1,21 @@
+footer {
+  background-color: #ff8fb8; /* ← 濃いめのピンク */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  width: 100%;
+}
+.footer-inner {
+	    display: flex;
+	    justify-content: center; /* ← これで左寄せ */
+	    align-items: center;
+		width: 100%;
+
+	}
+
+.footer-inner img.logo {
+    display: block;
+	width: 100px;   /* ここを調整すればOK */
+	margin: 20px auto;
+}

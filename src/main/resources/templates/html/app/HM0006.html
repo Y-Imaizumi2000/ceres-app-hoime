@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Hoime ホーム</title>
+    <link rel="stylesheet" href="/css/layout.css">
+
+    <style>
+        /* --- ダッシュボード共通スタイル --- */
+
+        .dashboard-container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        /* --- カードデザイン（Hoime らしい柔らかい雰囲気） --- */
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(255, 182, 255, 0.25);
+            border: 1px solid #f3d9ff;
+        }
+
+        .item {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- AI提案の文例 --- */
+        .suggestion-text {
+            background: #fff7ff;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #f5d6ff;
+            margin-bottom: 10px;
+        }
+
+        /* --- 通知 --- */
+        .notification {
+            padding: 10px;
+            background: #fff4f4;
+            border-left: 5px solid #ff8a8a;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* --- 進捗 --- */
+        .progress-item {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- --- 今日の書類 --- -->
+    <div class="card">
+        <div class="section-title">📄 今日の書類</div>
+
+        <!-- JS or Controller で差し替え -->
+        <div id="today-docs">
+            <div class="item">読み込み中...</div>
+        </div>
+    </div>
+
+    <!-- --- AI 提案 --- -->
+    <div class="card">
+        <div class="section-title">✨ AI 提案</div>
+
+        <div id="ai-suggestions">
+            <div class="suggestion-text">読み込み中...</div>
+        </div>
+    </div>
+
+    <!-- --- 通知 --- -->
+    <div class="card">
+        <div class="section-title">🔔 通知</div>
+
+        <div id="notifications">
+            <div class="notification">読み込み中...</div>
+        </div>
+    </div>
+
+    <!-- --- 進捗 --- -->
+    <div class="card">
+        <div class="section-title">📊 進捗</div>
+
+        <div id="progress">
+            <div class="progress-item">読み込み中...</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // --- DEBUGログ ---
+    console.log("【HM0006】ページ読み込み開始");
+
+    // --- ダッシュボード情報取得（Controller が Model にセットした値を JS で差し替える場合） ---
+    // ※ Thymeleaf を使わない前提なので、後で fetch API に切り替え可能
+
+    // 例：ダミーデータ（DashboardServiceImpl と同じ内容）
+    const data = {
+        todayDocs: ["連絡帳（3件）", "週案（1件）"],
+        aiSuggestions: [
+            "今日は気温が高く、外遊びが気持ちよくできました。",
+            "春の制作活動にぴったりの導入文です。"
+        ],
+        notifications: [
+            "認証メールが未確認です",
+            "AI生成の残り 2回です"
+        ],
+        progress: {
+            documentsThisMonth: 12,
+            aiUsage: 8,
+            renrakuchoRate: "20/25"
+        }
+    };
+
+    // --- 今日の書類 ---
+    const docsEl = document.getElementById("today-docs");
+    docsEl.innerHTML = "";
+    data.todayDocs.forEach(d => {
+        docsEl.innerHTML += `<div class="item">${d}</div>`;
+    });
+
+    // --- AI提案 ---
+    const aiEl = document.getElementById("ai-suggestions");
+    aiEl.innerHTML = "";
+    data.aiSuggestions.forEach(s => {
+        aiEl.innerHTML += `<div class="suggestion-text">${s}</div>`;
+    });
+
+    // --- 通知 ---
+    const notiEl = document.getElementById("notifications");
+    notiEl.innerHTML = "";
+    data.notifications.forEach(n => {
+        notiEl.innerHTML += `<div class="notification">${n}</div>`;
+    });
+
+    // --- 進捗 ---
+    const progEl = document.getElementById("progress");
+    progEl.innerHTML = `
+        <div class="progress-item">今月の書類作成数：${data.progress.documentsThisMonth}件</div>
+        <div class="progress-item">AI生成利用：${data.progress.aiUsage}回</div>
+        <div class="progress-item">連絡帳達成率：${data.progress.renrakuchoRate}</div>
+    `;
+
+    console.log("【HM0006】ページ描画完了");
+</script>
+
+</body>
+</html>

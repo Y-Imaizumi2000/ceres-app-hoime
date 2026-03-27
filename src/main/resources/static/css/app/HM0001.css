@@ -1,0 +1,24 @@
+h2 {
+    margin-bottom: 25px;
+    color: #ff7fa8;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.header-inner {
+	display: flex;
+	justify-content: center; /* ← これで左寄せ */
+	align-items: center;
+	width: 100%;
+}
+
+header {
+	width: 100%;
+}
+
+.header-inner img.logo {
+	display: block;
+	width: 100px;   /* ここを調整すればOK */
+	margin: 20px auto;
+}
+

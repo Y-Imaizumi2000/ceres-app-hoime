@@ -1,0 +1,30 @@
+<!-- templates/common/layout.html -->
+<html lang="ja" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout (title, css, content)">
+
+<head>
+  <meta charset="UTF-8">
+  <title th:replace="~{${title}}">Hoime</title>
+
+
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="/css/common/base.css">
+  <link rel="stylesheet" href="/css/common/layout.css">
+
+  <!-- 画面ごとのCSSを読み込む -->
+  <th:block th:replace="${css}"></th:block>
+</head>
+
+<body>
+
+  <!-- 共通ヘッダー -->
+  <th:block th:replace="common/header :: header"></th:block>
+
+  <!-- 画面ごとの中身 -->
+  <main class="content" th:replace="${content}"></main>
+
+  <!-- 共通フッター -->
+  <th:block th:replace="common/footer :: footer"></th:block>
+
+</body>
+</html>

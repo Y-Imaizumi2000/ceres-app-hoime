@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>新規登録</title>
+  <link rel="stylesheet" href="/css/app/HM0001.css">
+  <link rel="stylesheet" href="/css/common/base.css">
+  <link rel="stylesheet" href="/css/common/layout.css">
+  <link rel="stylesheet" href="/css/common/footer.css">
+
+</head>
+
+<body>
+	<header>
+	  <div class="header-inner">
+	    <img src="/img/hoimemo-icon.png" class="logo">
+	  </div>
+	</header>
+
+
+  <div class="input-form">
+  	<h1 class="app-title">Hoime</h1>
+
+      <h2>ログイン</h2>
+      <p th:if="${param.error}" th:text="ログインに失敗しました。メールアドレスまたはパスワードを確認してください。" style="color:#d9534f; margin-bottom:12px;"></p>
+
+      <form method="post" action="/login">
+          <div>
+              <label for="username">メールアドレス</label>
+              <input type="text" id="username" name="username" required>
+          </div>
+
+          <div>
+              <label for="password">パスワード</label>
+              <input type="password" id="password" name="password" required>
+          </div>
+
+          <button type="submit">ログイン</button>
+      </form>
+
+      <div class="links">
+          <a href="/signup">新規登録</a>
+  		<a href="/reset-password">パスワードを忘れた場合</a>
+      </div>
+  </div>
+  
+  <footer>
+  <div class="footer-inner">
+    <img src="/img/hoimemo-icon.png" class="logo">
+  </div>
+    © 2026 Hoime<br>
+	利用規約 ｜ プライバシーポリシー
+  </footer>
+
+</body>
+</html>

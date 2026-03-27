@@ -1,0 +1,95 @@
+/* 入力フォームの設定 **/
+.input-form {
+    background: #ffffffcc;
+    backdrop-filter: blur(8px);
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+}
+
+/* フォームの設定 **/
+form div {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+/* フォームのラベルの設定 **/
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* フォームの入力欄の設定 **/
+input {
+	background-image: url('/images/icon-user.svg');
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	padding-left: 40px;
+	width: 100%;
+	padding: 12px;
+	border: 2px solid #ffd1e6;
+	border-radius: 10px;
+	font-size: 14px;
+	transition: 0.2s;
+	background: #fff;
+}
+
+/* 入力欄がフォーカスされた場合の設定 **/
+input:focus {
+    border-color: #ff7fa8;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 127, 168, 0.4);
+}
+
+/* フォームのボタンの設定 **/
+button {
+    transition: transform 0.15s ease;
+	width: 100%;
+	    padding: 12px;
+	    background: #ff7fa8;
+	    border: none;
+	    border-radius: 10px;
+	    color: white;
+	    font-size: 15px;
+	    font-weight: bold;
+	    cursor: pointer;
+	    transition: 0.2s;
+}
+
+/* フォームのボタンのホバー時の設定 **/
+button:hover {
+    transform: translateY(-2px);
+	background: #ff5f95;
+}
+
+/* リンクの設定 **/
+.links a:hover {
+    text-decoration: underline;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.links a {
+    display: block;
+    margin-top: 8px;
+    color: #ff7fa8;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+/* コンテナの設定 **/
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(255, 180, 200, 0.25);
+}

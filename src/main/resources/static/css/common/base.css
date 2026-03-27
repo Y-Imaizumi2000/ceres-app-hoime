@@ -1,0 +1,23 @@
+body {
+	background: linear-gradient(180deg, #ffe6f0, #ffd6e8);
+	font-family: "Noto Sans JP", sans-serif;
+	margin: 0;
+	padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+
+}
+
+.app-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ff7fa8;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
