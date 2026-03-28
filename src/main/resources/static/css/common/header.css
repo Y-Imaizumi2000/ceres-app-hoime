@@ -1,5 +1,15 @@
+/*
+ * header.css
+ * ヘッダー表示に関するスタイル定義。
+ * 1. header: 全体背景、シャドウ、ボーダーなど
+ * 2. .header-inner: 左ロゴ、中央タイトル、右ユーザー表示のレイアウト
+ * 3. .header-user: ユーザー名表示のレスポンシブ対応
+ * 4. .header-menu: グローバルメニュー
+ */
+
 header {
     width: 100%;
+	background: linear-gradient(90deg, #fff6fb 0%, #fffefc 100%);
 }
 .header-inner {
     display: flex;
@@ -30,11 +40,22 @@ header {
 
 /* 右：ニックネーム */
 .header-user {
-    font-size: 14px;
-    color: #666;
-    white-space: nowrap;
+	color: #666;
+	font-size: 14px;
+	background: rgba(255,255,255,0.9);
+	padding: 6px 10px;
+	margin-right: 20px;
+	border-radius: 999px;
+	border: 1px solid rgba(226,138,170,0.12);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+	/* 追加: はみ出し防止 */
+	max-width: 160px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	vertical-align: middle;
 }
-
 .header-title {
 	    font-size: 28px;
 	    font-weight: 700;
@@ -42,3 +63,71 @@ header {
 	    margin-bottom: 10px;
 	    letter-spacing: 1px;
 	}
+
+/* --- ヘッダー・メニュー 共通スタイル（おしゃれ化） --- */
+.common-header, header {
+	background: linear-gradient(90deg, #fff6fb 0%, #fffefc 100%);
+	border-bottom: 1px solid rgba(226,138,170,0.12);
+	box-shadow: 0 2px 8px rgba(226,138,170,0.04);
+}
+
+.header-inner {
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+/* ヘッダーメニュー */
+.header-menu {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    background: transparent;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.menu a {
+    display: inline-block;
+    color: #6d4a62;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
+    border: 1px solid rgba(226,138,170,0.08);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(226,138,170,0.12);
+}
+
+ @media (max-width: 760px) {
+	.header-user {
+		max-width: 100px;
+		font-size: 13px;
+		padding: 5px 8px;
+	}
+}
+
+@media (max-width: 420px) {
+	.header-user {
+		display: flex;
+	}
+}

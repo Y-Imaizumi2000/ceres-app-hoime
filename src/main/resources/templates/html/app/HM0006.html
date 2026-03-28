@@ -10,6 +10,37 @@
 	<link rel="stylesheet" href="/css/common/layout.css">
 
     <style>
+
+
+        /* モバイル対応：ハンバーガー */
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            margin-left: 8px;
+        }
+
+        .menu-button .bar {
+            display: block;
+            width: 22px;
+            height: 2px;
+            margin: 4px 0;
+            background: #c26b8e;
+            border-radius: 2px;
+            transition: transform .2s ease, opacity .2s ease;
+        }
+
+        /* small screens */
+        @media (max-width: 760px) {
+            .header-inner { padding: 10px 12px; }
+            .header-title { font-size: 16px; }
+            .menu ul { display: none; flex-direction: column; gap: 8px; }
+            .menu.open ul { display: flex; }
+            .menu-button { display: inline-block; }
+        }
+
         /* --- ダッシュボード共通スタイル --- */
 
         .dashboard-container {
@@ -80,13 +111,20 @@
 	        <!-- 中央：アプリ名 -->
 	        <div class="header-title">Hoime</div>
 
+	        <!-- ハンバーガーボタン（モバイル用） -->
+	        <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mainMenu" aria-label="メニュー">
+	            <span class="bar"></span>
+	            <span class="bar"></span>
+	            <span class="bar"></span>
+	        </button>
+
 			<!-- 右：ニックネーム -->
-		    	<div class="header-user">ようこそ 悠さん</div>
+	    	<div class="header-user">ようこそ 悠さん</div>
 			</div>
 
 			<!-- メニュー -->
 			<div class="header-menu">
-	        	<nav class="menu">
+	        	<nav class="menu" id="mainMenu">
 	            	 <ul>
 	                	<li><a href="/docs">書類一覧</a></li>
 	                	<li><a href="/templates">テンプレ</a></li>
@@ -213,6 +251,38 @@
     `;
 
     console.log("【HM0006】ページ描画完了");
+
+
+    document.addEventListener('DOMContentLoaded', function(){
+        // メニュー切替
+        var btn = document.getElementById('menuButton');
+        var menu = document.getElementById('mainMenu');
+        if(btn && menu){
+            btn.addEventListener('click', function(e){
+                var opened = menu.classList.toggle('open');
+                btn.setAttribute('aria-expanded', opened);
+                e.stopPropagation();
+            });
+
+            // 画面リサイズで自動的にメニューを閉じる（デスクトップ化）
+            window.addEventListener('resize', function(){
+                if(window.innerWidth > 760){
+                    menu.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // 外部クリックで閉じる
+            document.addEventListener('click', function(e){
+                if(menu.classList.contains('open')){
+                    if(!menu.contains(e.target) && !btn.contains(e.target)){
+                        menu.classList.remove('open');
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                }
+            });
+        }
+    });
 </script>
 
 </body>
