@@ -15,23 +15,6 @@ h2 {
     letter-spacing: 1px;
 }
 
-.header-inner {
-	display: flex;
-	justify-content: center; /* ← これで左寄せ */
-	align-items: center;
-	width: 100%;
-}
-
-header {
-	width: 100%;
-}
-
-.header-inner img.logo {
-	display: block;
-	width: 100px;   /* ここを調整すればOK */
-	margin: 20px auto;
-}
-
 .checkbox {
   display: flex;
   align-items: center;

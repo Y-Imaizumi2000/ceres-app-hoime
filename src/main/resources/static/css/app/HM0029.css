@@ -1,0 +1,42 @@
+/* HM0029 問い合わせフォーム専用CSS */
+.contact-form {
+    max-width: 640px;
+    margin: 24px auto;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #f5d6ff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(226,138,170,0.08);
+}
+.contact-form h1 {
+    margin-top: 0;
+    color: #ff7fa8;
+}
+.contact-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 600;
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.contact-form textarea {
+    resize: vertical;
+    max-width: 100%;
+}
+.contact-form button {
+    margin-top: 16px;
+    padding: 10px 16px;
+    background: #ff7fa8;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+}

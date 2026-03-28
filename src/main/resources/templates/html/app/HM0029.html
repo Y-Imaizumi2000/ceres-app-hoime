@@ -7,44 +7,7 @@
     <link rel="stylesheet" href="/css/common/header.css" />
     <link rel="stylesheet" href="/css/common/footer.css" />
     <link rel="stylesheet" href="/css/common/layout.css" />
-    <style>
-        .contact-form {
-            max-width: 640px;
-            margin: 24px auto;
-            padding: 16px;
-            background: #fff;
-            border: 1px solid #f5d6ff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(226,138,170,0.08);
-        }
-        .contact-form h1 {
-            margin-top: 0;
-            color: #ff7fa8;
-        }
-        .contact-form label {
-            display: block;
-            margin: 12px 0 6px;
-            font-weight: 600;
-        }
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        .contact-form button {
-            margin-top: 16px;
-            padding: 10px 16px;
-            background: #ff7fa8;
-            color: #fff;
-            border: none;
-            border-radius: 999px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/app/HM0029.css" />
 </head>
 <body>
 <header>
@@ -73,9 +36,9 @@
     <form method="post" action="/contact/submit">
         <label for="category">カテゴリ</label>
         <select id="category" name="category" required>
-            <option value="bug">不具合報告</option>
-            <option value="feature">機能要望</option>
-            <option value="other">その他</option>
+            <option value="01">不具合報告</option>
+            <option value="02">機能要望</option>
+            <option value="09">その他</option>
         </select>
 
         <label for="message">内容</label>

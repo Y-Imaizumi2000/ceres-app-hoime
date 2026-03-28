@@ -1,0 +1,57 @@
+/* HM0031 利用規約画面用CSS */
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background: #fff6fa;
+  color: #444;
+  line-height: 1.8;
+  padding: 40px 20px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(255, 180, 200, 0.25);
+}
+h1 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: #e28aaa;
+  text-align: center;
+}
+h2 {
+  font-size: 20px;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: #e28aaa;
+  border-left: 6px solid #f3b5c8;
+  padding-left: 10px;
+}
+p {
+  margin-bottom: 16px;
+}
+.back-button {
+  text-align: right;
+  margin-top: 30px;
+}
+.back-button button {
+  background: #f3b5c8;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+.back-button button:hover {
+  opacity: 0.85;
+}
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+}
