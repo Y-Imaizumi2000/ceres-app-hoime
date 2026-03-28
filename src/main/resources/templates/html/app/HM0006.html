@@ -1,9 +1,13 @@
+<!-- HM0006: ダッシュボード -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>Hoime ホーム</title>
-    <link rel="stylesheet" href="/css/layout.css">
+	<link rel="stylesheet" href="/css/common/base.css">
+	<link rel="stylesheet" href="/css/common/header.css">
+	<link rel="stylesheet" href="/css/common/footer.css">
+	<link rel="stylesheet" href="/css/common/layout.css">
 
     <style>
         /* --- ダッシュボード共通スタイル --- */
@@ -67,6 +71,33 @@
 </head>
 
 <body>
+	<header>
+	    <div class="header-inner">
+
+	        <!-- 左：アイコン -->
+	        <img src="/img/hoimemo-icon.png" alt="Hoime" class="logo">
+
+	        <!-- 中央：アプリ名 -->
+	        <div class="header-title">Hoime</div>
+
+			<!-- 右：ニックネーム -->
+		    	<div class="header-user">ようこそ 悠さん</div>
+			</div>
+
+			<!-- メニュー -->
+			<div class="header-menu">
+	        	<nav class="menu">
+	            	 <ul>
+	                	<li><a href="/docs">書類一覧</a></li>
+	                	<li><a href="/templates">テンプレ</a></li>
+	                	<li><a href="/contact">お問い合わせ</a></li>
+	                	<li><a href="/settings">設定</a></li>
+	             	</ul>
+	        	</nav>
+			</div>
+	</header>
+
+
 
 <div class="dashboard-container">
 
@@ -108,6 +139,24 @@
     </div>
 
 </div>
+
+<footer class="footer">
+    <div class="footer-inner">
+	<img src="/img/hoimemo-icon.png" class="logo">
+
+        <div class="footer-links">
+            <a href="/terms">利用規約</a>
+            <a href="/privacy">プライバシーポリシー</a>
+            <a href="/law">特定商取引法に基づく表記</a>
+        </div>
+
+        <div class="footer-copy">
+            © 2026 Hoime
+        </div>
+
+    </div>
+</footer>
+
 
 <script>
     // --- DEBUGログ ---

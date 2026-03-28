@@ -21,3 +21,27 @@ body {
     margin-bottom: 10px;
     letter-spacing: 1px;
 }
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu ul {
+	    list-style: none;
+	    display: flex;
+	    gap: 20px;
+	    margin: 0;
+	    padding: 0;
+}
+
+.menu a {
+	text-decoration: none;
+	color: #555;
+	font-size: 15px;
+}
+
+.menu a:hover {
+	color: #e28aaa;
+}

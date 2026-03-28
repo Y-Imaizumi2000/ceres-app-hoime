@@ -1,18 +1,44 @@
-
-
-.header-inner {
-	display: flex;
-	justify-content: center; /* ← これで左寄せ */
-	align-items: center;
-	width: 100%;
-}
-
 header {
-	width: 100%;
+    width: 100%;
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* 左と右を両端に配置 */
+    width: 100%;
+    position: relative; /* 中央タイトルの absolute の基準 */
 }
 
-.header-inner img.logo {
-	display: block;
-	width: 100px;   /* ここを調整すればOK */
-	margin: 20px auto;
+/* 左：アイコン */
+.logo {
+    width: 80px;
+    height: auto;
+    margin: 0; /* 中央寄せ防止 */
 }
+
+/* 中央：アプリ名（絶対中央） */
+.header-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* 完全中央配置 */
+    font-size: 24px;
+    font-weight: bold;
+    color: #444;
+    pointer-events: none; /* クリック干渉を防ぐ（重要） */
+}
+
+/* 右：ニックネーム */
+.header-user {
+    font-size: 14px;
+    color: #666;
+    white-space: nowrap;
+}
+
+.header-title {
+	    font-size: 28px;
+	    font-weight: 700;
+	    color: #ff7fa8;
+	    margin-bottom: 10px;
+	    letter-spacing: 1px;
+	}

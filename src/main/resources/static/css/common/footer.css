@@ -8,8 +8,9 @@ footer {
 }
 .footer-inner {
 	    display: flex;
-	    justify-content: center; /* ← これで左寄せ */
-	    align-items: center;
+		flex-direction: column; /* ← これで縦並びになる */
+		align-items: center;    /* 中央揃え */
+		text-align: center;
 		width: 100%;
 
 	}
@@ -18,4 +19,19 @@ footer {
     display: block;
 	width: 100px;   /* ここを調整すればOK */
 	margin: 20px auto;
+}
+
+.footer-links {
+	display: flex;
+	margin-top: 8px;
+	text-decoration: none;
+	font-size: 14px;
+	flex-direction: column; /* ← これで縦並びになる */
+	align-items: center;    /* 中央揃え */
+	text-align: center;
+	width: 100%;
+}
+
+.footer-links a {
+color: #F7F7F7;
 }

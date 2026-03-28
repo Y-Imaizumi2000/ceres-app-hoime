@@ -43,6 +43,8 @@ public class SecurityConfig {
                     "/auth/resend",    // 認証メール再送
                     "/reset-password", // パスワードリセット画面
                     "/terms",          // 利用規約
+                    "/privacy",        // プライバシーポリシー
+                    "/law",            // 特商法
                     "/css/**",         // 静的リソース
                     "/js/**",
                     "/img/**"
