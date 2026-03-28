@@ -1,11 +1,14 @@
 package com.ceres.hoime.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.ceres.hoime.entity.User;
 import com.ceres.hoime.service.DashboardService;
+import com.ceres.hoime.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,14 +28,18 @@ public class HomeController {
     @Autowired
     private DashboardService dashboardService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * ホーム画面（HM0006）を表示する。
      *
      * @param model 画面に表示するデータを格納する Model
+     * @param auth  現在の認証情報
      * @return HM0006（ホーム画面）
      */
-    @GetMapping("/home")
-    public String home(Model model) {
+    @GetMapping({"/home", "/dashboard"})
+    public String home(Model model, Authentication auth) {
 
         // --- method start ---
         log.debug("【HomeController.home】start");
@@ -52,6 +59,21 @@ public class HomeController {
         // 進捗
         model.addAttribute("progress", dashboardService.getProgress());
         log.debug("【HomeController.home】progress loaded");
+
+        // ユーザー名（ニックネーム）を設定
+        if (auth != null && auth.isAuthenticated()) {
+            String email = auth.getName();
+            try {
+                User loginUser = userService.findByEmail(email);
+                model.addAttribute("nickname", loginUser.getNickname());
+                log.debug("【HomeController.home】nickname loaded={}", loginUser.getNickname());
+            } catch (Exception e) {
+                log.warn("【HomeController.home】nickname not found for email={}", email);
+                model.addAttribute("nickname", "ゲスト");
+            }
+        } else {
+            model.addAttribute("nickname", "ゲスト");
+        }
 
         // --- method end ---
         log.debug("【HomeController.home】end");

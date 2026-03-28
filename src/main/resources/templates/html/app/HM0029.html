@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>問い合わせフォーム</title>
+    <link rel="stylesheet" href="/css/common/base.css" />
+    <link rel="stylesheet" href="/css/common/header.css" />
+    <link rel="stylesheet" href="/css/common/footer.css" />
+    <link rel="stylesheet" href="/css/common/layout.css" />
+    <style>
+        .contact-form {
+            max-width: 640px;
+            margin: 24px auto;
+            padding: 16px;
+            background: #fff;
+            border: 1px solid #f5d6ff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(226,138,170,0.08);
+        }
+        .contact-form h1 {
+            margin-top: 0;
+            color: #ff7fa8;
+        }
+        .contact-form label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: 600;
+        }
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .contact-form button {
+            margin-top: 16px;
+            padding: 10px 16px;
+            background: #ff7fa8;
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-inner">
+        <img src="/img/hoimemo-icon.png" class="logo" alt="Hoimeアイコン" />
+        <div class="header-title">Hoime</div>
+        <div class="header-user" th:text="${currentUserName != null} ? 'ようこそ ' + ${currentUserName} + 'さん' : 'ようこそ ゲストさん'">ようこそ ゲストさん</div>
+    </div>
+    <div class="header-menu">
+        <a href="/dashboard">ホーム</a>
+        <a href="/document/create">書類一覧</a>
+        <a href="/templates">テンプレ</a>
+        <a href="/contact">お問い合わせ</a>
+        <a href="/settings">設定</a>
+    </div>
+</header>
+
+<main class="contact-form">
+    <h1>問い合わせフォーム</h1>
+    <div th:if="${success}" style="padding:10px; margin-bottom:10px; border:1px solid #6bb26f; color:#285a2b; background:#e8f6ea; border-radius:6px;">
+        <p th:text="${success}"></p>
+    </div>
+    <div th:if="${error}" style="padding:10px; margin-bottom:10px; border:1px solid #c00; color:#820000; background:#ffeaea; border-radius:6px;">
+        <p th:text="${error}"></p>
+    </div>
+    <form method="post" action="/contact/submit">
+        <label for="category">カテゴリ</label>
+        <select id="category" name="category" required>
+            <option value="bug">不具合報告</option>
+            <option value="feature">機能要望</option>
+            <option value="other">その他</option>
+        </select>
+
+        <label for="message">内容</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">送信</button>
+    </form>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <img src="/img/hoimemo-icon.png" class="logo" alt="Hoimeアイコン" />
+        <div class="footer-links">
+            <a href="/terms">利用規約</a>
+            <a href="/privacy">プライバシーポリシー</a>
+            <a href="/law">特商法</a>
+        </div>
+        <div class="footer-copy">© 2026 Hoime</div>
+    </div>
+</footer>
+</body>
+</html>

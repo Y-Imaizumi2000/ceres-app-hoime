@@ -9,33 +9,108 @@
 
 header {
     width: 100%;
-	background: linear-gradient(90deg, #fff6fb 0%, #fffefc 100%);
+    background: linear-gradient(90deg, #fff6fb 0%, #fffefc 100%);
+    border-bottom: 1px solid rgba(226,138,170,0.18);
+    box-shadow: 0 2px 15px rgba(226,138,170,0.08);
 }
 .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* 左と右を両端に配置 */
+    justify-content: space-between;
     width: 100%;
-    position: relative; /* 中央タイトルの absolute の基準 */
+    padding: 8px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 12px;
 }
 
 /* 左：アイコン */
 .logo {
-    width: 80px;
+    width: 56px;
     height: auto;
-    margin: 0; /* 中央寄せ防止 */
+    display: block;
 }
 
-/* 中央：アプリ名（絶対中央） */
+/* 中央：アプリ名 */
 .header-title {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); /* 完全中央配置 */
-    font-size: 24px;
-    font-weight: bold;
-    color: #444;
-    pointer-events: none; /* クリック干渉を防ぐ（重要） */
+    font-size: 30px;
+    font-weight: 800;
+    color: #ff7fa8;
+    letter-spacing: 0.7px;
+    margin: 0 auto;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-user {
+    color: #6b4c62;
+    font-size: 14px;
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(226,138,170,0.28);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    white-space: nowrap;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 0 12px;
+    width: 100%;
+    background: rgba(255,255,255,0.4);
+    border-top: 1px solid rgba(226,138,170,0.12);
+}
+
+.header-menu a {
+    color: #6d4a62;
+    text-decoration: none;
+    background: #fff;
+    border: 1px solid rgba(226,138,170,0.2);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(226,138,170,0.06);
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.header-menu a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(226,138,170,0.18);
+}
+
+@media (max-width: 760px) {
+    .header-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .header-title {
+        margin: 8px 0;
+    }
+    .header-right {
+        width: 100%;
+        justify-content: center;
+    }
+    .header-user {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 420px) {
+    .header-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .header-menu a {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
 }
 
 /* 右：ニックネーム */
@@ -82,41 +157,6 @@ header {
 }
 
 
-
-/* ヘッダーメニュー */
-.header-menu {
-    display: flex;
-    justify-content: center;
-    padding: 10px 20px;
-    background: transparent;
-}
-
-.menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.menu a {
-    display: inline-block;
-    color: #6d4a62;
-    text-decoration: none;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
-    border: 1px solid rgba(226,138,170,0.08);
-    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.menu a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(226,138,170,0.12);
-}
 
  @media (max-width: 760px) {
 	.header-user {

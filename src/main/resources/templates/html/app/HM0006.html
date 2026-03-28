@@ -1,6 +1,6 @@
 <!-- HM0006: ダッシュボード -->
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Hoime ホーム</title>
@@ -111,38 +111,18 @@
 	        <!-- 中央：アプリ名 -->
 	        <div class="header-title">Hoime</div>
 
-	        <!-- ハンバーガーボタン（モバイル用） -->
-	        <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mainMenu" aria-label="メニュー">
-	            <span class="bar"></span>
-	            <span class="bar"></span>
-	            <span class="bar"></span>
-	        </button>
+	        <!-- 右：ニックネーム -->
+	        <div class="header-user" th:text="${currentUserName != null} ? 'ようこそ ' + ${currentUserName} + 'さん' : 'ようこそ ゲストさん'">ようこそ ゲストさん</div>
+	    </div>
 
-			<!-- 右：ニックネーム -->
-	    	<div class="header-user">ようこそ 悠さん</div>
-			</div>
-
-			<!-- メニュー -->
-			<div class="header-menu">
-	        	<nav class="menu" id="mainMenu">
-	            	 <ul>
-	                	<li><a href="/docs">書類一覧</a></li>
-	                	<li><a href="/templates">テンプレ</a></li>
-	                	<li><a href="/contact">お問い合わせ</a></li>
-	                	<li><a href="/settings">設定</a></li>
-	             	</ul>
-	        	</nav>
-			</div>
-	</header>
-
-
-
-<div class="dashboard-container">
-
-    <!-- --- 今日の書類 --- -->
-    <div class="card">
-        <div class="section-title">📄 今日の書類</div>
-
+	    <!-- ヘッダーメニュー（タイトルの下） -->
+	    <div class="header-menu">
+            <a href="/dashboard">ホーム</a>
+	        <a href="/document/create">書類一覧</a>
+	        <a href="/templates">テンプレ</a>
+	        <a href="/contact">お問い合わせ</a>
+	        <a href="/settings">設定</a>
+	    </div>
         <!-- JS or Controller で差し替え -->
         <div id="today-docs">
             <div class="item">読み込み中...</div>

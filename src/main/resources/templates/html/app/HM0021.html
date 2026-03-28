@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>テンプレ一覧</title>
+    <link rel="stylesheet" href="/css/common/base.css">
+    <link rel="stylesheet" href="/css/common/header.css">
+    <link rel="stylesheet" href="/css/common/footer.css">
+    <link rel="stylesheet" href="/css/common/layout.css">
+    <style>
+        .template-list {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 16px;
+        }
+        .template-list h1 {
+            margin-bottom: 16px;
+            color: #ff7fa8;
+            font-size: 28px;
+        }
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(250px, 1fr));
+            gap: 14px;
+        }
+        .template-item {
+            background: #fff;
+            border: 1px solid #f4d0ee;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(226,138,170,0.08);
+            padding: 16px;
+        }
+        .template-item h3 {
+            margin: 0 0 8px;
+            color: #6d4a62;
+        }
+        .template-item p {
+            margin: 0 0 12px;
+            color: #7f5a7a;
+            font-size: 14px;
+        }
+        .template-item a {
+            display: inline-block;
+            padding: 8px 12px;
+            color: #fff;
+            background: #ff8bb3;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        @media (max-width: 910px) {
+            .template-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 680px) {
+            .template-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-inner">
+        <img src="/img/hoimemo-icon.png" class="logo" alt="Hoimeアイコン">
+        <div class="header-title">Hoime</div>
+        <div class="header-user" th:text="${currentUserName != null} ? 'ようこそ ' + ${currentUserName} + 'さん' : 'ようこそ ゲストさん'">ようこそ ゲストさん</div>
+    </div>
+
+    <div class="header-menu">
+        <a href="/dashboard">ホーム</a>
+        <a href="/document/create">書類一覧</a>
+        <a href="/templates">テンプレ</a>
+        <a href="/contact">お問い合わせ</a>
+        <a href="/settings">設定</a>
+    </div>
+</header>
+
+<main class="template-list">
+    <h1>テンプレート一覧</h1>
+    <div class="template-grid">
+        <article class="template-item">
+            <h3>連絡帳テンプレ</h3>
+            <p>毎日の連絡帳の定型文をまとめて管理。編集して保存できます。</p>
+            <a href="/templates/contact-sheet">開く</a>
+        </article>
+        <article class="template-item">
+            <h3>園だよりテンプレ</h3>
+            <p>月次・季節報告に使いやすい園だよりのフォーマットです。</p>
+            <a href="/templates/newsletter">開く</a>
+        </article>
+        <article class="template-item">
+            <h3>イベント案内テンプレ</h3>
+            <p>行事の案内文と出欠フォームを簡単に作成できます。</p>
+            <a href="/templates/event">開く</a>
+        </article>
+        <article class="template-item">
+            <h3>保護者連絡テンプレ</h3>
+            <p>保護者向けの連絡文書をテンプレ化し時短化します。</p>
+            <a href="/templates/parent-letter">開く</a>
+        </article>
+        <article class="template-item">
+            <h3>記録帳テンプレ</h3>
+            <p>日々の記録や観察メモのフォーマットです。</p>
+            <a href="/templates/record">開く</a>
+        </article>
+        <article class="template-item">
+            <h3>活動計画テンプレ</h3>
+            <p>週間/月間計画の作成をサポートするテンプレート。</p>
+            <a href="/templates/planning">開く</a>
+        </article>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <img src="/img/hoimemo-icon.png" class="logo">
+        <div class="footer-links">
+            <a href="/terms">利用規約</a>
+            <a href="/privacy">プライバシーポリシー</a>
+            <a href="/law">特商法</a>
+        </div>
+        <div class="footer-copy">© 2026 Hoime</div>
+    </div>
+</footer>
+</body>
+</html>
