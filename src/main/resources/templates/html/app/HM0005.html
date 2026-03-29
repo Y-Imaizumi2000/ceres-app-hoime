@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>パスワード再設定 | Hoime</title>
+    <link rel="stylesheet" href="/css/common/base.css" />
+    <link rel="stylesheet" href="/css/common/header.css" />
+    <link rel="stylesheet" href="/css/common/footer.css" />
+    <link rel="stylesheet" href="/css/common/layout.css" />
+    <link rel="stylesheet" href="/css/app/HM0005.css" />
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <img src="/img/hoimemo-icon.png" class="logo" alt="Hoimeアイコン" />
+        <div class="header-title">Hoime</div>
+        <div class="header-user"></div>
+    </div>
+</header>
+
+<main class="reset-form">
+
+    <!-- ===== Step 1: メールアドレス入力 ===== -->
+    <div th:if="${step == 'request'}">
+
+        <!-- トークンエラー（期限切れ・無効など） -->
+        <div th:if="${tokenError}" class="alert alert-error" th:text="${tokenError}"></div>
+
+        <!-- メール送信完了メッセージ -->
+        <div th:if="${sent}" class="alert alert-success">
+            入力したメールアドレスに再設定リンクを送信しました。<br>
+            メールが届かない場合はスパムフォルダをご確認ください。
+        </div>
+
+        <h1>パスワード再設定</h1>
+        <p class="description">登録済みのメールアドレスを入力してください。<br>パスワード再設定用のリンクをお送りします。</p>
+
+        <form th:unless="${sent}" method="post" action="/auth/password/reset">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" placeholder="example@hoime.jp" required />
+            <button type="submit">再設定リンクを送信</button>
+        </form>
+
+        <div class="back-link">
+            <a href="/login">ログイン画面に戻る</a>
+        </div>
+    </div>
+
+    <!-- ===== Step 2: 新パスワード入力 ===== -->
+    <div th:if="${step == 'confirm'}">
+
+        <h1>新しいパスワードを設定</h1>
+        <p class="description">8文字以上のパスワードを入力してください。</p>
+
+        <!-- エラーメッセージ -->
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+        <form method="post" action="/auth/password/reset/confirm">
+            <input type="hidden" name="token" th:value="${token}" />
+
+            <label for="newPassword">新しいパスワード</label>
+            <input type="password" id="newPassword" name="newPassword"
+                   minlength="8" placeholder="8文字以上" required />
+
+            <label for="confirmPassword">パスワード（確認）</label>
+            <input type="password" id="confirmPassword" name="confirmPassword"
+                   minlength="8" placeholder="もう一度入力" required />
+
+            <button type="submit">パスワードを変更する</button>
+        </form>
+
+        <div class="back-link">
+            <a href="/login">ログイン画面に戻る</a>
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="footer-inner">
+        <img src="/img/hoimemo-icon.png" class="logo" alt="Hoimeアイコン" />
+        <div class="footer-links">
+            <a href="/terms">利用規約</a>
+            <a href="/privacy">プライバシーポリシー</a>
+            <a href="/law">特商法</a>
+        </div>
+        <div class="footer-copy">© 2026 Hoime</div>
+    </div>
+</footer>
+
+</body>
+</html>

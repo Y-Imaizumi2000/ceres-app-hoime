@@ -74,4 +74,48 @@ public class EmailServiceImpl implements EmailService {
         // --- method end ---
         log.debug("【sendVerificationEmail】end");
     }
+
+    /**
+     * パスワードリセットメールを送信する。
+     *
+     * @param to    送信先メールアドレス
+     * @param token リセットトークン
+     */
+    @Override
+    public void sendPasswordResetEmail(String to, String token) {
+
+        log.debug("【sendPasswordResetEmail】start to={} token={}", to, token);
+
+        try {
+            String subject = "【Hoime】パスワード再設定のご案内";
+            String url = domain + "/auth/password/reset/confirm?token=" + token;
+
+            String text = """
+                    Hoimeをご利用いただきありがとうございます。
+
+                    以下のリンクからパスワードを再設定してください。
+                    リンクの有効期限は1時間です。
+
+                    パスワード再設定リンク：
+                    %s
+
+                    ※このメールに心当たりのない場合は破棄してください。
+                    """.formatted(url);
+
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(to);
+            message.setSubject(subject);
+            message.setText(text);
+
+            mailSender.send(message);
+
+            log.debug("【sendPasswordResetEmail】mail sent to={}", to);
+
+        } catch (Exception e) {
+            log.error("【sendPasswordResetEmail】error to={} message={}", to, e.getMessage(), e);
+            throw e;
+        }
+
+        log.debug("【sendPasswordResetEmail】end");
+    }
 }

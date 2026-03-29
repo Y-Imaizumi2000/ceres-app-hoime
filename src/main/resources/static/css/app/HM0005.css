@@ -1,0 +1,100 @@
+/* HM0005 パスワード再設定専用CSS */
+.reset-form {
+    max-width: 480px;
+    margin: 48px auto;
+    padding: 32px 28px;
+    background: #fff;
+    border: 1px solid #f5d6ff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(255, 182, 255, 0.18);
+}
+
+.reset-form h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #ff7fa8;
+    font-size: 22px;
+}
+
+.reset-form .description {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.reset-form label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.reset-form input[type="email"],
+.reset-form input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.reset-form input[type="email"]:focus,
+.reset-form input[type="password"]:focus {
+    outline: none;
+    border-color: #ff7fa8;
+}
+
+.reset-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #ff7fa8;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.reset-form button[type="submit"]:hover {
+    background: #ff5c8e;
+    transform: scale(1.01);
+}
+
+.reset-form .back-link {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.reset-form .back-link a {
+    color: #d88fa8;
+    text-decoration: underline;
+}
+
+/* アラートメッセージ */
+.alert {
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.alert-success {
+    background: #e8f6ea;
+    border: 1px solid #6bb26f;
+    color: #285a2b;
+}
+
+.alert-error {
+    background: #ffeaea;
+    border: 1px solid #c00;
+    color: #820000;
+}

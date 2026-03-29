@@ -37,15 +37,17 @@ public class SecurityConfig {
         // 認可設定（どのURLをログインなしでアクセス可能にするか）
         http.authorizeHttpRequests(auth -> auth
                 .requestMatchers(
-                    "/login",          // ログイン画面
-                    "/signup",         // 新規登録画面
-                    "/auth/verify",    // メール認証リンク
-                    "/auth/resend",    // 認証メール再送
-                    "/reset-password", // パスワードリセット画面
-                    "/terms",          // 利用規約
-                    "/privacy",        // プライバシーポリシー
-                    "/law",            // 特商法
-                    "/css/**",         // 静的リソース
+                    "/login",                        // ログイン画面
+                    "/signup",                       // 新規登録画面
+                    "/auth/verify",                  // メール認証リンク
+                    "/auth/resend",                  // 認証メール再送
+                    "/auth/password/reset",          // パスワードリセット申請
+                    "/auth/password/reset/confirm",  // パスワードリセット実行
+                    "/reset-password",               // 旧パス（互換用）
+                    "/terms",                        // 利用規約
+                    "/privacy",                      // プライバシーポリシー
+                    "/law",                          // 特商法
+                    "/css/**",                       // 静的リソース
                     "/js/**",
                     "/img/**"
                 ).permitAll()

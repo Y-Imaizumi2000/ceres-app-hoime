@@ -72,6 +72,13 @@ public interface UserService {
      * @param user 対象ユーザー
      */
     void verifyUser(User user);
+
+    /**
+     * ユーザー情報を保存する。
+     *
+     * @param user 保存対象ユーザー
+     */
+    void save(User user);
     
     /**
      * 認証メール再送処理。

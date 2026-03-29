@@ -234,6 +234,13 @@ public class UserServiceImpl implements UserService {
         return tokenRepository.save(token);
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void save(User user) {
+        log.debug("【save】userId={}", user.getId());
+        userRepository.save(user);
+    }
 
 }

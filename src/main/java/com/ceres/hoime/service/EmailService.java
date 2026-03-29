@@ -14,4 +14,12 @@ public interface EmailService {
      * @param token 認証トークン
      */
     void sendVerificationEmail(String to, String token);
+
+    /**
+     * パスワードリセット用のメールを送信する。
+     *
+     * @param to    送信先メールアドレス
+     * @param token リセットトークン
+     */
+    void sendPasswordResetEmail(String to, String token);
 }
