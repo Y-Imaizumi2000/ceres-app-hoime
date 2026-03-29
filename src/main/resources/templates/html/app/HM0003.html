@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="/css/common/header.css">
 <link rel="stylesheet" href="/css/common/footer.css">
 <link rel="stylesheet" href="/css/common/layout.css">
+<link rel="stylesheet" href="/css/app/HM0003.css">
 	<style>
 	    body {
 	      font-family: "Noto Sans JP", sans-serif;
@@ -35,14 +36,46 @@
 		.back-button {
 		  text-align: right;
 		  margin-top: 30px;
-		}
+		}	        </style>
+	  </head>
+	  <header>
+	      <div class="header-inner">
+	      <img src="/img/hoimemo-icon.png" alt="Hoime" class="logo">
+	      </div>
+	  </header>
 
-		</head>
-		<link rel="stylesheet" href="/css/common/base.css">
-		<link rel="stylesheet" href="/css/common/header.css">
-		<link rel="stylesheet" href="/css/common/footer.css">
-		<link rel="stylesheet" href="/css/common/layout.css">
-		<link rel="stylesheet" href="/css/app/HM0003.css">
+	  <div class="input-form">
+
+	      <h2>メールを送信しました</h2>
+
+	      <p class="text">
+	          ご登録ありがとうございます。<br>
+	          <span th:if="${registeredNickname}" th:text="${registeredNickname} + ' さん'" style="font-weight:bold;"></span><br th:if="${registeredNickname}">
+	          ご入力いただいたメールアドレス宛に、認証用リンクをお送りしました。<br>
+	          <span th:if="${registeredEmail}" th:text="${registeredEmail}" style="font-weight:bold;"></span><br th:if="${registeredEmail}">
+	          メール内のリンクをクリックして、アカウントを有効化してください。
+	      </p>
+
+	      <div class="section">
+	          <p class="text">メールが届かない場合：</p>
+	          <ul class="text">
+	              <li>迷惑メールフォルダをご確認ください</li>
+	              <li>メールアドレスの入力間違いがないかご確認ください</li>
+	              <li>数分待っても届かない場合は、再送信をお試しください</li>
+	          </ul>
+	      </div>
+
+	      <button onclick="location.href='/auth/resend'">
+	          認証メールを再送信する
+	      </button>
+
+	      <div class="links">
+	          <a href="/login">ログイン画面へ戻る</a>
+	      </div>
+
+	  </div>
+
+	  <footer class="footer">
     <div class="footer-inner">
 	<img src="/img/hoimemo-icon.png" class="logo">
 
